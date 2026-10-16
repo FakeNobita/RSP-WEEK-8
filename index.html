@@ -377,36 +377,31 @@ function createQuiz() {
 
         const isMultiSelect = Array.isArray(question.correctAnswer);
 
-        questionCard.innerHTML = `
-            <div class="question-text">Q${question.id}. ${question.question}</div>
-            ${question.image ? `<img src="${question.image}" alt="Image for question ${question.id}" class="question-image">` : ''}
-            ${question.questionAfterImage ? `<div class="question-text">${question.questionAfterImage}</div>` : ''}
-                <div class="options-container">
-                    <input class="numeric-answer" type="number" id="numeric-${question.id}" placeholder="Enter your numerical answer" style="width:100%; padding:12px; border:1px solid #e5e5e5; border-radius:8px; font-size:16px;">
-                </div>
-            ` : `<div class="options-container">
-                ${question.options.map((option, index) => `
-                    <label class="option" data-question="${question.id}" data-option="${index}">
-                        ${isMultiSelect
-                            ? `<input class="answer-control" type="checkbox" name="question${question.id}" value="${index}">`
-                            : `<input class="answer-control" type="radio" name="question${question.id}" value="${index}">`
-                        }
-                        <span class="option-label">${option}</span>
-                    </label>
-                `).join('')}
-            </div>`}
-
-            <div class="feedback" id="feedback-${question.id}">
-                <div class="result-icon">
-                    <span class="icon"></span>
-                    <span class="result-text"></span>
-                </div>
-
-                <div class="correct-answer">
-                    Correct Answer: ${question.explanation}
-                </div>
-            </div>
-        `;
+      questionCard.innerHTML = `
+    <div class="question-text">Q${question.id}. ${question.question}</div>
+    ${question.image ? `<img src="${question.image}" alt="Image for question ${question.id}" class="question-image">` : ''}
+    ${question.questionAfterImage ? `<div class="question-text">${question.questionAfterImage}</div>` : ''}
+    <div class="options-container">
+        ${question.options.map((option, index) => `
+            <label class="option" data-question="${question.id}" data-option="${index}">
+                ${isMultiSelect
+                    ? `<input class="answer-control" type="checkbox" name="question${question.id}" value="${index}">`
+                    : `<input class="answer-control" type="radio" name="question${question.id}" value="${index}">`
+                }
+                <span class="option-label">${option}</span>
+            </label>
+        `).join('')}
+    </div>
+    <div class="feedback" id="feedback-${question.id}">
+        <div class="result-icon">
+            <span class="icon"></span>
+            <span class="result-text"></span>
+        </div>
+        <div class="correct-answer">
+            Correct Answer: ${question.explanation}
+        </div>
+    </div>
+`;
 
         quizContainer.appendChild(questionCard);
     });
