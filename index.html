@@ -293,22 +293,11 @@ const questions = [
     "explanation": "Interpretability - II [20:32-21:23] - Public datasets and model sharing libraries are some examples of attack vectors.",
     "type": "multi"
   },
-  // {
-  //   "id": 8,
-  //   "question": "Consider the following equation for LIME: What do the components and represent? 𝐿 Ω(𝑔)",
-  //   "options": [
-  //     "measures how unfaithful the explanation model is in approximating locally 𝐿 𝑔 𝑓 (weighted by , while measures the complexity/interpretability penalty of π𝑥 Ω(𝑔) the explanation model.",
-  //     "represents the global accuracy of the black-box model , and represents 𝐿 𝑓 Ω(𝑔) the total number of convolutional layers.",
-  //     "is the adversarial perturbation budget, and is the learning rate of the 𝐿 Ω(𝑔) surrogate model.",
-  //     "calculates the exact Shapley values, and computes the gradient with 𝐿 Ω(𝑔) respect to input pixels."
-  //   ],
-  //   "correctAnswer": 0,
-  //   "explanation": "Interpretability - I [32:03-34:57] - In LIME's objective function, quantifies 𝐿 how poorly the simple explanation model approximates the complex black-box model 𝑔 within the local neighborhood defined by , while penalizes model complexity to 𝑓 π𝑥 Ω(𝑔) ensure the resulting explanation remains simple and interpretable for humans.",
-  //   "type": "single"
-  // }
   {
     "id": 8,
-    "question": "Consider the following equation for LIME:\nξ(x) = argmin₍g∈G₎ ℒ(f, g, πₓ) + Ω(g)\n\nWhat do the components ℒ and Ω(g) represent?",
+    "question": "Consider the following equation for LIME:",
+    "image": "lime-formula.png",
+    "questionAfterImage": "What do the components L and Ω(g) represent?",
     "options": [
         "L measures how unfaithful the explanation model g is in approximating f locally (weighted by πₓ), while Ω(g) measures the complexity/interpretability penalty of the explanation model.",
         "L represents the global accuracy of the black-box model f, and Ω(g) represents the total number of convolutional layers.",
@@ -390,6 +379,8 @@ function createQuiz() {
 
         questionCard.innerHTML = `
             <div class="question-text">Q${question.id}. ${question.question}</div>
+${question.image ? `<img src="${question.image}" alt="Image for question ${question.id}" class="question-image">` : ''}
+${question.questionAfterImage ? `<div class="question-text">${question.questionAfterImage}</div>` : ''}
             ${question.image ? `<img src="${question.image}" alt="Image for question ${question.id}" class="question-image">` : ''}
             ${question.type === 'numeric' ? `
                 <div class="options-container">
