@@ -44,6 +44,7 @@
             font-weight: 600;
             margin-bottom: 16px;
             color: #333;
+            white-space: pre-line;
         }
 
         .question-image {
@@ -309,13 +310,14 @@ const questions = [
     "id": 8,
     "question": "Consider the following equation for LIME:\nξ(x) = argmin₍g∈G₎ ℒ(f, g, πₓ) + Ω(g)\n\nWhat do the components ℒ and Ω(g) represent?",
     "options": [
-        "ℒ measures how unfaithful the explanation model g is in approximating f locally (weighted by πₓ), while Ω(g) measures the complexity/interpretability penalty of the explanation model.",
-        "ℒ represents the global accuracy of the black-box model f, and Ω(g) represents the total number of convolutional layers.",
-        "ℒ is the adversarial perturbation budget, and Ω(g) is the learning rate of the surrogate model.",
-        "ℒ calculates the exact Shapley values, and Ω(g) computes the gradient with respect to input pixels."
+        "L measures how unfaithful the explanation model g is in approximating f locally (weighted by πₓ), while Ω(g) measures the complexity/interpretability penalty of the explanation model.",
+        "L represents the global accuracy of the black-box model f, and Ω(g) represents the total number of convolutional layers.",
+        "L is the adversarial perturbation budget, and Ω(g) is the learning rate of the surrogate model.",
+        "L calculates the exact Shapley values, and Ω(g) computes the gradient with respect to input pixels."
     ],
     "correctAnswer": 0,
-    "explanation": "A) ℒ measures how unfaithful the explanation model g is in approximating f locally (weighted by πₓ), while Ω(g) measures the complexity/interpretability penalty of the explanation model."
+    "explanation": "Interpretability - I [32:03-34:57] - In LIME's objective function, quantifies 𝐿 how poorly the simple explanation model approximates the complex black-box model 𝑔 within the local neighborhood defined by , while penalizes model complexity to 𝑓 π𝑥 Ω(𝑔) ensure the resulting explanation remains simple and interpretable for humans.",
+    "type": "single"
   },
   {
     "id": 9,
