@@ -379,10 +379,8 @@ function createQuiz() {
 
         questionCard.innerHTML = `
             <div class="question-text">Q${question.id}. ${question.question}</div>
-${question.image ? `<img src="${question.image}" alt="Image for question ${question.id}" class="question-image">` : ''}
-${question.questionAfterImage ? `<div class="question-text">${question.questionAfterImage}</div>` : ''}
             ${question.image ? `<img src="${question.image}" alt="Image for question ${question.id}" class="question-image">` : ''}
-            ${question.type === 'numeric' ? `
+            ${question.questionAfterImage ? `<div class="question-text">${question.questionAfterImage}</div>` : ''}
                 <div class="options-container">
                     <input class="numeric-answer" type="number" id="numeric-${question.id}" placeholder="Enter your numerical answer" style="width:100%; padding:12px; border:1px solid #e5e5e5; border-radius:8px; font-size:16px;">
                 </div>
